@@ -9,7 +9,6 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -24,9 +23,8 @@ public class KontaktActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
-    private List<Adapter> movieList = new ArrayList<>();
-    private RecyclerView recyclerView;
-    private AdapterAdapter mAdapter;
+    private List<Person> persons;
+    RecyclerView rv;
 
 
     @Override
@@ -53,29 +51,27 @@ public class KontaktActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
-        mAdapter = new AdapterAdapter(movieList);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
-
-// set the adapter
-        recyclerView.setAdapter(mAdapter);
-        prepareAdapterData();
+        rv = (RecyclerView)findViewById(R.id.rv);
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        rv.setLayoutManager(llm);
+        rv.setHasFixedSize(true);
+        initializeData();
+        initializeAdapter();
 
 
     }
+    private void initializeData(){
+        persons = new ArrayList<>();
+        persons.add(new Person("Nils Digel", "01522/860 97 98", R.drawable.nils));
 
-    private void prepareAdapterData() {
-        Adapter movie = new Adapter("Mad Max: Fury Road", "Action & Adventure", "2015");
-        movieList.add(movie);
-
-
-
-        mAdapter.notifyDataSetChanged();
     }
+
+    private void initializeAdapter(){
+        RVAdapter adapter = new RVAdapter(persons);
+        rv.setAdapter(adapter);
+    }
+
 
     @Override
     public void onBackPressed() {
