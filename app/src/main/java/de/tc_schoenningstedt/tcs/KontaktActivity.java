@@ -9,13 +9,25 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class KontaktActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+
+    private List<Adapter> movieList = new ArrayList<>();
+    private RecyclerView recyclerView;
+    private AdapterAdapter mAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +53,28 @@ public class KontaktActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+
+        mAdapter = new AdapterAdapter(movieList);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
+
+// set the adapter
+        recyclerView.setAdapter(mAdapter);
+        prepareAdapterData();
+
+
+    }
+
+    private void prepareAdapterData() {
+        Adapter movie = new Adapter("Mad Max: Fury Road", "Action & Adventure", "2015");
+        movieList.add(movie);
+
+
+
+        mAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -74,6 +108,10 @@ public class KontaktActivity extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
+
+
+
+
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
