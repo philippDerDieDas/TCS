@@ -3,9 +3,8 @@ package de.tc_schoenningstedt.tcs;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -13,14 +12,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
-public class StartActivity extends AppCompatActivity
+public class KontaktActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_start);
+        setContentView(R.layout.activity_kontakt);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -56,7 +56,7 @@ public class StartActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.start, menu);
+        getMenuInflater().inflate(R.menu.kontakt, menu);
         return true;
     }
 
@@ -82,9 +82,9 @@ public class StartActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_start) {
+           startActivity(new Intent(this, StartActivity.class));
+        } else if (id == R.id.nav_kontakt) {
 
-        } else if (id == R.id.nav_kontakt){
-            startActivity(new Intent(this, KontaktActivity.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
