@@ -64,6 +64,7 @@ public class KontaktActivity extends AppCompatActivity
     private void initializeData(){
         persons = new ArrayList<>();
         persons.add(new Person("Nils Digel", "01522/860 97 98", R.drawable.nils));
+        persons.add(new Person("Nicole Fleckenstein", "0174/999 84 98 ", R.drawable.nicole));
 
     }
 
