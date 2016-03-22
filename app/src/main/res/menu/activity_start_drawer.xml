@@ -8,8 +8,12 @@
             android:title="Start" />
         <item
             android:id="@+id/nav_kontakt"
-            android:icon="@drawable/ic_play_arrow_black_24dp"
+            android:icon="@drawable/ic_contact_phone_black_24dp"
             android:title="Kontakt" />
+        <item
+            android:id="@+id/nav_termine"
+            android:icon="@drawable/ic_event_black_24dp"
+            android:title="Termine"/>
 
     </group>
 

@@ -18,6 +18,8 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
         TextView personName;
         TextView personAge;
         ImageView personPhoto;
+        TextView personjob;
+        TextView personemail;
 
         PersonViewHolder(View itemView) {
             super(itemView);
@@ -25,6 +27,8 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
             personName = (TextView)itemView.findViewById(R.id.person_name);
             personAge = (TextView)itemView.findViewById(R.id.person_age);
             personPhoto = (ImageView)itemView.findViewById(R.id.person_photo);
+            personjob = (TextView) itemView.findViewById(R.id.person_job);
+            personemail = (TextView) itemView.findViewById(R.id.person_email);
         }
     }
 
@@ -51,6 +55,8 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
         personViewHolder.personName.setText(persons.get(i).name);
         personViewHolder.personAge.setText(persons.get(i).age);
         personViewHolder.personPhoto.setImageResource(persons.get(i).photoId);
+        personViewHolder.personjob.setText(persons.get(i).job);
+        personViewHolder.personemail.setText(persons.get(i).email);
     }
 
     @Override

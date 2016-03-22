@@ -7,10 +7,14 @@ class Person {
     String name;
     String age;
     int photoId;
+    String job;
+    String email;
 
-    Person(String name, String age, int photoId) {
+    Person(String name, String age, int photoId, String job, String email) {
         this.name = name;
         this.age = age;
         this.photoId = photoId;
+        this.job = job;
+        this.email = email;
     }
 }
