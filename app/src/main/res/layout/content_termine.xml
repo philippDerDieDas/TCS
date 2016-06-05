@@ -9,13 +9,6 @@
     tools:context="de.tc_schoenningstedt.tcs.TermineActivity"
     tools:showIn="@layout/app_bar_termine">
 
-    <CalendarView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/cl"
-        android:layout_below="@+id/year"
-        android:layout_centerHorizontal="true" />
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -35,12 +28,12 @@
         android:layout_height="wrap_content"
         android:text="Januar"
         android:id="@+id/month"
-        android:layout_below="@+id/day"
-        android:layout_centerHorizontal="true"
         android:textAlignment="center"
         android:textSize="20dp"
         android:background="@color/colorAccent"
-        android:textColor="#FFFFFF"/>
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/day"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="match_parent"
@@ -53,4 +46,12 @@
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
         android:textSize="20dp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@+id/year"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/rvterm"
+        android:layout_margin="5dp"
+        android:padding="5dp" />
 </RelativeLayout>
