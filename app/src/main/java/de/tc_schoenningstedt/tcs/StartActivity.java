@@ -93,6 +93,8 @@ public class StartActivity extends AppCompatActivity
             startActivity(new Intent(this, KontaktActivity.class));
         } else if (id == R.id.nav_termine) {
             startActivity(new Intent(this, TermineActivity.class));
+        }else if (id == R.id.nav_map) {
+            startActivity(new Intent(this, MapActivity.class));
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

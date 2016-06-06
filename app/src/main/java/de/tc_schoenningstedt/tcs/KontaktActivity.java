@@ -128,6 +128,8 @@ public class KontaktActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_termine) {
             startActivity(new Intent(this, TermineActivity.class));
+        } else if (id == R.id.nav_map) {
+            startActivity(new Intent(this, MapActivity.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

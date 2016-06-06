@@ -7,4 +7,5 @@
     <string name="action_settings">Einstellungen</string>
     <string name="title_activity_kontakt">Kontakt</string>
     <string name="title_activity_termine">Termine</string>
+    <string name="title_activity_map">MapActivity</string>
 </resources>
