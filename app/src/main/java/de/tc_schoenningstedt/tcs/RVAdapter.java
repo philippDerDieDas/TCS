@@ -1,5 +1,6 @@
 package de.tc_schoenningstedt.tcs;
 
+import android.graphics.Paint;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -20,6 +21,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
         ImageView personPhoto;
         TextView personjob;
         TextView personemail;
+        View.OnClickListener ec;
 
         PersonViewHolder(View itemView) {
             super(itemView);
@@ -29,6 +31,8 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
             personPhoto = (ImageView)itemView.findViewById(R.id.person_photo);
             personjob = (TextView) itemView.findViewById(R.id.person_job);
             personemail = (TextView) itemView.findViewById(R.id.person_email);
+            personemail.setOnClickListener(ec);
+            personemail.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
         }
     }
 
@@ -57,6 +61,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
         personViewHolder.personPhoto.setImageResource(persons.get(i).photoId);
         personViewHolder.personjob.setText(persons.get(i).job);
         personViewHolder.personemail.setText(persons.get(i).email);
+        personViewHolder.personemail.setOnClickListener(persons.get(i).ec);
     }
 
     @Override

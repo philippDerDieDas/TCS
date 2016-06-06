@@ -65,13 +65,55 @@ public class KontaktActivity extends AppCompatActivity
     }
     private void initializeData(){
         persons = new ArrayList<>();
-        persons.add(new Person("Nils Digel", "01522/860 979 8", R.drawable.nils, "Vorstandsvorsitzender", "nils.digel@tc-schoenningstedt.de"));
-        persons.add(new Person("Nicole Fleckenstein", "0174/999 849 8 ", R.drawable.nicole, "1. Stellvertreterin", "nicole.fleckenstein@tc-schoenningstedt.de"));
-        persons.add(new Person("Christoph Wegmann", "040/219 946 31", R.drawable.christoph, "2. Stellvertreter", "christoph.wegmann@tc-schoenningstedt.de"));
-        persons.add(new Person("Nils Koslowski", "0160/913 112 08", R.drawable.nils2, "Kassenwart", "nils.koslowski@tc-schoenningstedt.de"));
-        persons.add(new Person("Stephan Ludwig", "0171/574 559 5", R.drawable.stephan, "Sportwart", "stephan.ludwig@tc-schoenningstedt.de"));
-        persons.add(new Person("Frauke Bothmann", "0176/485 536", R.drawable.frauke, "Schriftwartin", "stephan.ludwig@tc-schoenningstedt.de"));
-        persons.add(new Person("Andreas Mathiessen", "01577/528 242 1", R.drawable.andreas, "Haus- und Platzwart", "andreas.matthiessen@tc-schoenningstedt.de"));
+        persons.add(new Person("Nils Digel", "01522/860 979 8", R.drawable.nils, "Vorstandsvorsitzender", "nils.digel@tc-schoenningstedt.de", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "nils.digel@tc-schoenningstedt.de", null));
+                startActivity(Intent.createChooser(intent, "Email senden"));
+            }
+        }));
+        persons.add(new Person("Nicole Fleckenstein", "0174/999 849 8 ", R.drawable.nicole, "1. Stellvertreterin", "nicole.fleckenstein@tc-schoenningstedt.de", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "nicole.fleckenstein@tc-schoenningstedt.de", null));
+                startActivity(Intent.createChooser(intent, "Email senden"));
+            }
+        }));
+        persons.add(new Person("Christoph Wegmann", "040/219 946 31", R.drawable.christoph, "2. Stellvertreter", "christoph.wegmann@tc-schoenningstedt.de", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "christoph.wegmann@tc-schoenningstedt.de", null));
+                startActivity(Intent.createChooser(intent, "Email senden"));
+            }
+        }));
+        persons.add(new Person("Nils Koslowski", "0160/913 112 08", R.drawable.nils2, "Kassenwart", "nils.koslowski@tc-schoenningstedt.de", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "nils.koslowski@tc-schoenningstedt.de", null));
+                startActivity(Intent.createChooser(intent, "Email senden"));
+            }
+        }));
+        persons.add(new Person("Stephan Ludwig", "0171/574 559 5", R.drawable.stephan, "Sportwart", "stephan.ludwig@tc-schoenningstedt.de", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "stephan.ludwig@tc-schoenningstedt.de", null));
+                startActivity(Intent.createChooser(intent, "Email senden"));
+            }
+        }));
+        persons.add(new Person("Frauke Bothmann", "0176/485 536", R.drawable.frauke, "Schriftwartin", "frauke.bothmann@tc-schoenningstedt.de", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "frauke.bothmann@tc-schoenningstedt.de", null));
+                startActivity(Intent.createChooser(intent, "Email senden"));
+            }
+        }));
+        persons.add(new Person("Andreas Mathiessen", "01577/528 242 1", R.drawable.andreas, "Haus- und Platzwart", "andreas.matthiessen@tc-schoenningstedt.de", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "andreas.matthiessen@tc-schoenningstedt.de", null));
+                startActivity(Intent.createChooser(intent, "Email senden"));
+            }
+        }));
     }
 
     private void initializeAdapter(){
@@ -124,8 +166,6 @@ public class KontaktActivity extends AppCompatActivity
 
         if (id == R.id.nav_start) {
            startActivity(new Intent(this, StartActivity.class));
-        } else if (id == R.id.nav_kontakt) {
-
         } else if (id == R.id.nav_termine) {
             startActivity(new Intent(this, TermineActivity.class));
         } else if (id == R.id.nav_map) {

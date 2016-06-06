@@ -87,9 +87,7 @@ public class StartActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_start) {
-
-        } else if (id == R.id.nav_kontakt){
+        if (id == R.id.nav_kontakt){
             startActivity(new Intent(this, KontaktActivity.class));
         } else if (id == R.id.nav_termine) {
             startActivity(new Intent(this, TermineActivity.class));

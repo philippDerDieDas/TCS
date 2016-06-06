@@ -38,6 +38,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 public class TermineActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -81,20 +82,21 @@ public class TermineActivity extends AppCompatActivity
         else if (Calendar.SUNDAY == dayOfWeek) weekDay = "Sonntag";
 
         Calendar cal=Calendar.getInstance();
-        SimpleDateFormat month_date = new SimpleDateFormat("MMMM");
+        SimpleDateFormat month_date = new SimpleDateFormat("MMMM", Locale.GERMANY);
         String month_name = month_date.format(cal.getTime());
 
 
 
 
         day = (TextView) findViewById(R.id.day);
-        day.setText(weekDay);
+        if (day != null) {
+            day.setText(weekDay);
+        }
 
         month = (TextView) findViewById(R.id.month);
-        month.setText(month_name);
-
-
-
+        if (month != null) {
+            month.setText(month_name);
+        }
 
 
         new AsyncFetch().execute();
@@ -263,10 +265,7 @@ public class TermineActivity extends AppCompatActivity
             startActivity(new Intent(this, StartActivity.class));
         } else if (id == R.id.nav_kontakt) {
             startActivity(new Intent(this, KontaktActivity.class));
-        }else if (id == R.id.nav_termine) {
-            startActivity(new Intent(this, TermineActivity.class));
-        }
-        else if (id == R.id.nav_map) {
+        } else if (id == R.id.nav_map) {
             startActivity(new Intent(this, MapActivity.class));
         }
 
